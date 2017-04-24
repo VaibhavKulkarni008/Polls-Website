@@ -8,6 +8,7 @@ import datetime
 
 @python_2_unicode_compatible  #for python 2 support
 class Question(models.Model):
+	""" Model for storing information about the Question """
 	question_text = models.CharField(max_length=200)
 	pub_date = models.DateTimeField('Date Published')
 
@@ -25,6 +26,7 @@ class Question(models.Model):
 
 @python_2_unicode_compatible  #for python 2 support
 class Choice(models.Model):
+	"""Choice for the Questions present in the Database"""
 	question = models.ForeignKey(Question, on_delete=models.CASCADE)
 	choice_text = models.CharField(max_length=200)
 	votes = models.IntegerField(default=0)
