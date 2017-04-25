@@ -7,13 +7,12 @@ from django.utils import timezone
 import datetime
 
 
-
-
 @python_2_unicode_compatible  #for python 2 support
 class Question(models.Model):
 	""" Model for storing information about the Question """
 	question_text = models.CharField(max_length=200)
 	pub_date = models.DateTimeField('Date Published')
+	category = models.CharField(max_length=50,null=True)
 
 	def __str__(self):
 		return self.question_text
@@ -26,20 +25,14 @@ class Question(models.Model):
 		was_published_recently.short_description = 'Published recently?'
 
 
-@python_2_unicode_compatible  #for python 2 support
-class PollCategory(models.Model):
-	category_name = models.CharField(max_length=50)
-	question = models.ManyToManyField(Question)
-
-	def __str__(self):
-		return self.category_name
-
 
 
 @python_2_unicode_compatible  #for python 2 support
 class Choice(models.Model):
 	"""Choice for the Questions present in the Database"""
-	question = models.ForeignKey(Question, on_delete=models.CASCADE)
+	question = models.ForeignKey(Question, 
+								on_delete=models.CASCADE)
+	
 	choice_text = models.CharField(max_length=200)
 	votes = models.IntegerField(default=0)
 

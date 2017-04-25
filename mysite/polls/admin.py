@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Question, PollCategory, Choice
+from .models import Question, Choice
 
 """
 class QuestionInline(admin.TabularInline):
@@ -8,25 +8,15 @@ class QuestionInline(admin.TabularInline):
 	extra = 0
 """
 
-class PollCategoryInline(admin.TabularInline):
-	model = PollCategory.question.through
+class ChoiceInline(admin.TabularInline):
+	model = Choice
 	extra = 0
 	classes = ['collapse']
 
 
 class QuestionAdmin(admin.ModelAdmin):
-	fieldsets = [
-		(None,					{'fields': ['question_text']}),
-		('Date information',	{'fields': ['pub_date'], 'classes': ['collapse']}),
-	]
-	inlines = [PollCategoryInline]
+	fields=['question_text','pub_date',]
+	inlines = [ChoiceInline]
 
-class PollCategoryAdmin(admin.ModelAdmin):
-	inlines = [
-		PollCategoryInline,
-	]
-	exclude = ('question',)
 
 admin.site.register(Question, QuestionAdmin)
-admin.site.register(PollCategory,PollCategoryAdmin)
-admin.site.register(Choice)
