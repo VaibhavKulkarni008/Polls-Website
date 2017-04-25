@@ -4,7 +4,10 @@ from django.http import HttpResponseRedirect, HttpResponse
 from django.core.urlresolvers import reverse
 from django.views import generic
 
+import csv
+
 #3-rd party libraries
+
 import django_excel as excel
 
 #Model imports
@@ -51,6 +54,32 @@ def vote(request, question_id):
 		return HttpResponseRedirect(reverse('polls:results', args=(question.id,)))
 
 
+
+
+def export_excel(request,question_id):
+	""" Export the data form given question id into excel file """
+	question_provided_in_url = get_object_or_404(Question, pk=question_id)
+
+	response = HttpResponse(content_type='text/csv')
+	response['Content-Disposition'] = 'attachment; filename="question.csv"'
+
+	writer = csv.writer(response)
+	writer.writerow(['Question', 'Choice','Votes'])
+
+	choice_list = Choice.objects.filter(question=question_provided_in_url)
+
+	for given_choice in choice_list:
+			writer.writerow(
+				[
+				question_provided_in_url.question_text,
+				given_choice.choice_text,
+				given_choice.votes,
+				]
+				)
+	return response
+
+
+
 # def export_excel(request):
 # 	question_list = Question.objects.all()
 # 	choice_list = Choice.objects.all()
@@ -60,12 +89,12 @@ def vote(request, question_id):
 
 
 
-def export_excel(request, question_id):
-	""" Export the data form given question id into excel file """
-	question = get_object_or_404(Question, pk=question_id)
-	query_sets = Choice.objects.filter(question=question)
-	column_names = ['choice_text','votes']
-	return excel.make_response_from_tables([Choice,Question], 'csv',file_name="All_Questions")
+# def export_excel(request, question_id):
+# 	""" Export the data form given question id into excel file """
+# 	question = get_object_or_404(Question, pk=question_id)
+# 	query_sets = Choice.objects.filter(question=question)
+# 	column_names = ['choice_text','votes']
+# 	return excel.make_response_from_tables([Choice,Question], 'csv',file_name="All_Questions")
 
 # """
 # 	return excel.make_response_from_query_sets(
