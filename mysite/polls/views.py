@@ -1,7 +1,8 @@
 from django.shortcuts import get_object_or_404, render
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse
 from django.core.urlresolvers import reverse
 from django.views import generic
+import django_excel as excel
 
 from .models import Question, Choice
 
@@ -39,3 +40,11 @@ def vote(request, question_id):
 		selected_choice.save()
 
 		return HttpResponseRedirect(reverse('polls:results', args=(question.id,)))
+
+
+def export_excel(request, question_id):
+	question = get_object_or_404(Question, pk=question_id)
+	query_sets = Choice.objects.filter(question=question)
+	column_names = ['choice_text','votes']
+
+	return excel.make_response_from_query_sets(query_sets, column_names, 'xls', file_name="question")

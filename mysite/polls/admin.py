@@ -15,7 +15,7 @@ class ChoiceInline(admin.TabularInline):
 
 
 class QuestionAdmin(admin.ModelAdmin):
-	fields=['question_text','pub_date',]
+	fields=['question_text','pub_date','category']
 	inlines = [ChoiceInline]
 
 
