@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Online Polls</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+
+<!-- Navigation Bar -->
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+
+            <!-- Logo -->
+            <div class="navbar-header">
+                <a href="#" class="navbar-brand">Online Polls</a>
+            </div>
+            
+            <!-- Menu Items -->
+            <div>
+                <ul class="nav navbar-nav">
+                    <li ><a href="#">Home</a></li>
+                    <li class="active"><a href="#">Polls</a></li>
+                    <li><a href="#">Results</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+<!-- Body -->
+
+<!-- Top Servey List -->
+    <div class="container">
+{% if latest_question_list %}
+        <h1>Top 5 Questions: </h1>
+        <div class="row" >
+
+		{% for question in latest_question_list %}
+
+            <div class="col-md-6 solid" style="background-color: #FFFFFF margin-top:20px" >
+            <strong>{{ question.question_text }}</strong><br/>             
+            </div>
+        	{% endfor %}
+
+    </div>
+
+{% else %}
+<p>No questions are available.</p>
+{% endif %}
+
+</body>
+</html>
