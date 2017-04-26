@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+
+  <title>Results</title>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- For  bootstrap  -->
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
+  <!-- For google charts  -->
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script type="text/javascript">
+       google.charts.load('current', {packages: ['corechart']});     
+  </script>
+
+</head>
+<body>
+
+<!--  Navigation Bar  -->
+ <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+
+            <!-- Logo -->
+            <div class="navbar-header">
+                <a href="#" class="navbar-brand">Online Polls</a>
+            </div>
+            
+            <!-- Menu Items -->
+            <div>
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="{% url 'polls:index' %}">Polls</a></li>
+                </ul>
+            </div>
+        </div>
+  </nav>
+
+
+
+
+<div class="container">
+
+<h2>{{ question.question_text }}</h2>
+    <table class="table table-striped">
+        <thead>
+                <tr>
+                    <th>Choice</th>
+                    <th>Votes</th>
+                </tr>
+        </thead>
+        <tbody>
+        {% for choice in question.choice_set.all %}
+         <tr>
+                    <td>{{ choice.choice_text }}</td>
+                    <td>{{ choice.votes }}</td>
+         </tr>
+        {% endfor %}
+         </tbody>
+</table>
+
+<a href="{% url 'polls:detail' question.id %}">Vote again?</a>
+&emsp;&emsp;
+<a href="{% url 'polls:export_excel' question.id %}">Export to Excel !</a>
+
+
+<div id="container" style="width: 550px; height: 400px; margin: 0 auto"></div>
+<script language="JavaScript">
+function drawChart() {
+   // Define the chart to be drawn.
+   var data = new google.visualization.DataTable();
+   data.addColumn('string', 'Choice');
+   data.addColumn('number', 'Votes');
+   
+   {% for choice in question.choice_set.all %}
+   data.addRow(['{{ choice.choice_text }}', {{ choice.votes }} ]);
+   {% endfor %}
+   
+
+
+  
+   var options = {'title':'{{ question.question_text }}',
+      'width':550,
+      'height':400,
+       is3D:true
+   };
+
+   // Instantiate and draw the chart.
+   var chart = new google.visualization.PieChart(document.getElementById('container'));
+   chart.draw(data, options);
+}
+google.charts.setOnLoadCallback(drawChart);
+</script>
+
+
+
+
+
+
+</body>
+</html>

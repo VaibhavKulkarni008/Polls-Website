@@ -3,6 +3,7 @@ from django.shortcuts import get_object_or_404, render
 from django.http import HttpResponseRedirect, HttpResponse
 from django.core.urlresolvers import reverse
 from django.views import generic
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 import csv
 
@@ -19,9 +20,13 @@ class IndexView(generic.ListView):
 	template_name='polls/index1.html'
 	context_object_name= 'latest_question_list'
 
+	paginate_by = 5 
+
+
+
 	def get_queryset(self):
 		"""Pass the modelset to the template"""
-		return Question.objects.order_by('-pub_date')[:5]
+		return Question.objects.order_by('-pub_date')
 
 
 class DetailView(generic.DetailView):
@@ -59,15 +64,12 @@ def vote(request, question_id):
 def export_excel(request,question_id):
 	""" Export the data form given question id into excel file """
 	question_provided_in_url = get_object_or_404(Question, pk=question_id)
-
 	response = HttpResponse(content_type='text/csv')
 	response['Content-Disposition'] = 'attachment; filename="question.csv"'
 
 	writer = csv.writer(response)
 	writer.writerow(['Question', 'Choice','Votes'])
-
 	choice_list = Choice.objects.filter(question=question_provided_in_url)
-
 	for given_choice in choice_list:
 			writer.writerow(
 				[

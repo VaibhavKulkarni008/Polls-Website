@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+
+  <title>Results</title>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- For  bootstrap  -->
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
+  <!-- For google charts  -->
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script type="text/javascript">
+       google.charts.load('current', {packages: ['corechart']});     
+  </script>
+
+</head>
+<body>
+<!--  Navigation Bar  -->
+ <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+
+            <!-- Logo -->
+            <div class="navbar-header">
+                <a href="" class="navbar-brand">Online Polls</a>
+            </div>
+            
+            <!-- Menu Items -->
+            <div>
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="{% url 'polls:index' %}">Polls</a></li>
+                </ul>
+            </div>
+        </div>
+  </nav>
+
+
+<div class="container">
+
+<h2>{{ question.question_text }}</h2>
+
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+<form action="{% url 'polls:vote' question.id %}" method="post">
+{% csrf_token %}
+
+{% for choice in question.choice_set.all %}
+	<input type="radio" name="choice" id="choice {{ forloop.counter }}" value="{{ choice.id }}" />	
+	<label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label><br/>
+	{% endfor %}
+	<input type="submit" value="Vote" />
+</form>
+</form>
+
+</div>
+
+</body>
