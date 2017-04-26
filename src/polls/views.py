@@ -10,8 +10,6 @@ import csv
 
 #3-rd party libraries
 
-import django_excel as excel
-
 #Model imports
 from .models import Question, Choice
 
