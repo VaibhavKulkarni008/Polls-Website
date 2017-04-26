@@ -5,40 +5,7 @@ import csv
 from .models import Question, Choice
 
 
-# #custom admin action
-# def export_choice_set_as_cvs(modeladmin, request, queryset):
-
-# 		#for choice fields
-# 		choice_opts = Choice._meta
-# 		field_names = [field.name for field in choice_opts.fields]
-
-# 		response = HttpResponse(content_type='text/csv')
-
-# 		response['Content-Disposition'] = 'attachment; filename=%s.csv' % unicode(choice_opts).replace('.', '_')
-
-# 		writer = csv.writer(response)
-
-# 		writer.writerow(field_names)
-
-# 		for obj in queryset:
-
-# 			choice_set = Choice.objects.filter(question=obj)
-
-# 			for choice in choice_set:
-
-# 				row = [getattr(choice, field)() 
-# 				if callable(getattr(choice, field)) 
-# 				else getattr(choice, field) 
-# 				for field in field_names]
-
-
-# 			writer.writerow(row)
-
-# 		return response
-
-# 		export_as_csv.short_description = description
-
-# 		return export_as_csv
+# custom admin action
 
 
 def export_question_set_as_csv(modeladmin, request, queryset):
@@ -80,18 +47,12 @@ def export_question_set_as_csv(modeladmin, request, queryset):
 class ChoiceInline(admin.TabularInline):
 	model = Choice
 	extra = 1
-	#classes = ['collapse']
 
 
 class QuestionAdmin(admin.ModelAdmin):
 	fields=['question_text','pub_date','category']
 	inlines = [ChoiceInline]
 	list_display = ['question_text','pub_date']
-
-	# list_filter = ['pub_date']
-	# search_fields = ['question']
-	# date_hierarchy = 'pub_date'
-
 	actions = [export_question_set_as_csv]
 
 
