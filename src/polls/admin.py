@@ -79,14 +79,19 @@ def export_question_set_as_csv(modeladmin, request, queryset):
 
 class ChoiceInline(admin.TabularInline):
 	model = Choice
-	extra = 0
-	classes = ['collapse']
+	extra = 1
+	#classes = ['collapse']
 
 
 class QuestionAdmin(admin.ModelAdmin):
 	fields=['question_text','pub_date','category']
 	inlines = [ChoiceInline]
 	list_display = ['question_text','pub_date']
+
+	# list_filter = ['pub_date']
+	# search_fields = ['question']
+	# date_hierarchy = 'pub_date'
+
 	actions = [export_question_set_as_csv]
 
 

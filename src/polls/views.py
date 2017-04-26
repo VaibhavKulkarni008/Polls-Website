@@ -3,6 +3,7 @@ from django.shortcuts import get_object_or_404, render
 from django.http import HttpResponseRedirect, HttpResponse
 from django.core.urlresolvers import reverse
 from django.views import generic
+from django.utils import timezone
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 import csv
@@ -17,7 +18,7 @@ from .models import Question, Choice
 #class based views
 class IndexView(generic.ListView):
 	""" View to display latest 5 questions """
-	template_name='polls/index1.html'
+	template_name='polls/index.html'
 	context_object_name= 'latest_question_list'
 
 	paginate_by = 5 
@@ -26,7 +27,11 @@ class IndexView(generic.ListView):
 
 	def get_queryset(self):
 		"""Pass the modelset to the template"""
-		return Question.objects.order_by('-pub_date')
+
+		return Question.objects.filter(pub_date__lte=timezone.now()).order_by('-pub_date')
+
+
+		
 
 
 class DetailView(generic.DetailView):
@@ -79,30 +84,6 @@ def export_excel(request,question_id):
 				]
 				)
 	return response
-
-
-
-# def export_excel(request):
-# 	question_list = Question.objects.all()
-# 	choice_list = Choice.objects.all()
-# 	question_dict= dict()
-# 	choice_dict=dict()
-# 	new_dict = dict()
-
-
-
-# def export_excel(request, question_id):
-# 	""" Export the data form given question id into excel file """
-# 	question = get_object_or_404(Question, pk=question_id)
-# 	query_sets = Choice.objects.filter(question=question)
-# 	column_names = ['choice_text','votes']
-# 	return excel.make_response_from_tables([Choice,Question], 'csv',file_name="All_Questions")
-
-# """
-# 	return excel.make_response_from_query_sets(
-# 		query_sets, column_names, 'csv', file_name="question"
-# 		)
-# 	"""
 
 
 
