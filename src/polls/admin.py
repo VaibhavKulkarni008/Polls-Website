@@ -9,13 +9,11 @@ from .models import Question, Choice
 
 
 def export_question_set_as_csv(modeladmin, request, queryset):
+		
 		#for question fields
 		opts = modeladmin.model._meta
 
 		field_names = [field.name for field in opts.fields]
-
-		#for choice fields
-		
 
 		response = HttpResponse(content_type='text/csv')
 
