@@ -1,8 +1,12 @@
 from django.conf.urls import url
-
 from . import views
 
+#imports for api
+from rest_framework import routers
+
+
 app_name ='polls'
+
 
 urlpatterns = [
     url(r'^$', views.IndexView.as_view(), name = "index"),
@@ -15,5 +19,11 @@ urlpatterns = [
 
      url(r'^(?P<question_id>[0-9]+)/export/$', views.export_excel, name= 'export_excel'),
 
-
 ]
+
+
+router = routers.DefaultRouter()
+router.register(r'questions', views.QuestionViewSet)
+router.register(r'choices', views.ChoiceViewSet)
+
+urlpatterns += router.urls

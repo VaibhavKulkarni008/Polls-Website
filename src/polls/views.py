@@ -8,10 +8,14 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 import csv
 
-#3-rd party libraries
+
 
 #Model imports
 from .models import Question, Choice
+
+#imports for viewset(rest api)
+from rest_framework import viewsets
+from .serializers import QuestionSerializer,ChoiceSerializer
 
 #class based views
 class IndexView(generic.ListView):
@@ -85,3 +89,12 @@ def export_excel(request,question_id):
 
 
 
+#viewsets for api
+
+class QuestionViewSet(viewsets.ModelViewSet):
+	queryset = Question.objects.all()
+	serializer_class = QuestionSerializer
+
+class ChoiceViewSet(viewsets.ModelViewSet):
+	queryset = Choice.objects.all()
+	serializer_class = ChoiceSerializer
