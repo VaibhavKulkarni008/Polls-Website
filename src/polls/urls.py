@@ -1,7 +1,7 @@
 from django.conf.urls import url
 from . import views
 from django.conf.urls import include
-from rest_framework.urlpatterns import format_suffix_patterns
+from rest_framework import routers
 
 
 app_name ='polls'
@@ -20,14 +20,8 @@ urlpatterns = [
 ]
 
 
-urlpatterns += [
-    url(r'^api/questions/$', views.QuestionList.as_view(), name= 'question-list'),
-    url(r'^api/questions/(?P<pk>[0-9]+)/$', views.QuestionDetail.as_view(), name='question-detail'),
-    url(r'^api/choices/$', views.ChoiceList.as_view(), name= 'choice-list'),
-    url(r'^api/choices/(?P<pk>[0-9]+)/$', views.ChoiceDetail.as_view(), name='choice-detail'),
-]
-
-
-
-urlpatterns = format_suffix_patterns(urlpatterns)
+router = routers.DefaultRouter()
+router.register(r'api/questions', views.QuestionViewSet)
+router.register(r'api/choices', views.ChoiceViewSet)
+urlpatterns += router.urls
 
