@@ -6,7 +6,13 @@ from django.views import generic
 from django.utils import timezone
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
+
 import csv
+
+
+# import for custom authetication for api
+from rest_framework import permissions
+from .permissions import ObjectPermissionCHeck
 
 
 
@@ -14,15 +20,20 @@ import csv
 from .models import Question, Choice
 
 #imports for viewset(rest api)
-from rest_framework import viewsets
-from .serializers import QuestionSerializer,ChoiceSerializer
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from rest_framework import status
+from .serializers import QuestionSerializer, ChoiceSerializer
+
+from rest_framework import mixins
+from rest_framework import generics
+
 
 #class based views
 class IndexView(generic.ListView):
 	""" View to display latest 5 questions """
 	template_name='polls/index.html'
 	context_object_name= 'latest_question_list'
-
 	paginate_by = 5 
 
 
@@ -91,10 +102,75 @@ def export_excel(request,question_id):
 
 #viewsets for api
 
-class QuestionViewSet(viewsets.ModelViewSet):
+class QuestionList(mixins.ListModelMixin,
+					mixins.CreateModelMixin,
+					generics.GenericAPIView):
+	queryset = Question.objects.all()
+	serializer_class = QuestionSerializer
+	permission_classes = (permissions.DjangoModelPermissionsOrAnonReadOnly,)
+
+	def get(self, request, *args, **kwargs):
+		return self.list(request, *args, **kwargs)
+
+	def post(self, request, *args, **kwargs):
+		return self.create(request, *args, **kwargs)
+
+
+
+
+
+class QuestionDetail(mixins.RetrieveModelMixin,
+					mixins.UpdateModelMixin,
+					mixins.DestroyModelMixin,
+					generics.GenericAPIView):
 	queryset = Question.objects.all()
 	serializer_class = QuestionSerializer
 
-class ChoiceViewSet(viewsets.ModelViewSet):
+	permission_classes = (permissions.DjangoModelPermissionsOrAnonReadOnly,)
+
+	def get(self, request, *args, **kwargs):
+
+		return self.retrieve(request, *args, **kwargs)
+
+	def put(self, request, *args, **kwargs):
+		return self.update(request, *args, **kwargs)
+
+	def delete(self, request, *args, **kwargs):
+		return self.destroy(request, *args, **kwargs)
+
+
+class ChoiceList(mixins.ListModelMixin,
+					mixins.CreateModelMixin,
+					generics.GenericAPIView):
 	queryset = Choice.objects.all()
 	serializer_class = ChoiceSerializer
+	permission_classes = (permissions.DjangoModelPermissionsOrAnonReadOnly,)
+
+	def get(self, request, *args, **kwargs):
+		return self.list(request, *args, **kwargs)
+
+	def post(self, request, *args, **kwargs):
+		return self.create(request, *args, **kwargs)
+
+
+
+
+
+class ChoiceDetail(mixins.RetrieveModelMixin,
+					mixins.UpdateModelMixin,
+					mixins.DestroyModelMixin,
+					generics.GenericAPIView):
+	queryset = Choice.objects.all()
+	serializer_class = ChoiceSerializer
+
+	permission_classes = (permissions.DjangoModelPermissionsOrAnonReadOnly,)
+
+	def get(self, request, *args, **kwargs):
+
+		return self.retrieve(request, *args, **kwargs)
+
+	def put(self, request, *args, **kwargs):
+		return self.update(request, *args, **kwargs)
+
+	def delete(self, request, *args, **kwargs):
+		return self.destroy(request, *args, **kwargs)
