@@ -14,19 +14,14 @@ import csv
 from rest_framework import permissions
 from .permissions import ObjectPermissionCHeck
 
-from rest_framework import viewsets
+
 
 #Model imports
 from .models import Question, Choice
 
 #imports for viewset(rest api)
-from rest_framework.views import APIView
-from rest_framework.response import Response
-from rest_framework import status
+from rest_framework import viewsets
 from .serializers import QuestionSerializer, ChoiceSerializer
-
-from rest_framework import mixins
-from rest_framework import generics
 
 
 #class based views
