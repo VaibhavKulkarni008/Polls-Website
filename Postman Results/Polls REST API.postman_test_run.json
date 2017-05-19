@@ -1,0 +1,458 @@
+{
+	"id": "5a6781ed-62a2-4a08-8a93-fecbeb235846",
+	"name": "Polls REST API",
+	"allTests": [],
+	"timestamp": "2017-05-19T07:44:46.216Z",
+	"collection_id": "66869e39-e2a8-c982-0fc7-ac4fa0e2e064",
+	"folder_id": 0,
+	"target_type": "collection",
+	"environment_id": "no-environment",
+	"data": [],
+	"delay": 0,
+	"count": 1,
+	"collection": {
+		"id": "66869e39-e2a8-c982-0fc7-ac4fa0e2e064",
+		"name": "Polls REST API",
+		"description": "",
+		"order": [
+			"2172c7ed-1373-2618-ffb0-e716371efc8d",
+			"46c1e063-166e-965d-5bd4-ecc950dbcaf2",
+			"12673436-b3f3-e781-2fce-fc901c64832c",
+			"354109dc-f32d-082f-f25d-da500058a997",
+			"de6d6cb6-1ae2-62be-da6f-37aa7295f13f",
+			"80171c22-4481-17d9-d456-53edacd69cb2",
+			"d7a3b565-7035-a445-348d-f65e02581111",
+			"2f8afe45-cc3e-b5ea-a6eb-c98eb1e18ede",
+			"51aafa03-fe9a-a48b-0ad0-f9d9694c39ec",
+			"b5332879-b313-e62e-9b16-b73e85616c39"
+		],
+		"folders": [],
+		"timestamp": 1495176794413,
+		"synced": false,
+		"remote_id": 0,
+		"owner": 0,
+		"subscribed": false,
+		"remoteLink": "",
+		"remoteLinkUpdatedAt": null,
+		"public": false,
+		"createdAt": 1495176794471,
+		"updatedAt": 1495179775438,
+		"write": true,
+		"published": false,
+		"favorite": false,
+		"permissions": {},
+		"syncedPermissions": {}
+	},
+	"folder": null,
+	"environment": null,
+	"globals": [],
+	"results": [
+		{
+			"name": "http://127.0.0.1:8000/polls/api/choices/",
+			"id": "2172c7ed-1373-2618-ffb0-e716371efc8d",
+			"url": "http://127.0.0.1:8000/polls/api/choices/",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				"13"
+			],
+			"allTests": [
+				{}
+			],
+			"time": "13",
+			"totalRequestTime": "13",
+			"iterationResults": {}
+		},
+		{
+			"name": "http://127.0.0.1:8000/polls/api/choices/34/",
+			"id": "46c1e063-166e-965d-5bd4-ecc950dbcaf2",
+			"url": "http://127.0.0.1:8000/polls/api/choices/34/",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden",
+				"detail": {
+					"name": "Forbidden",
+					"detail": "The request was a legal request, but the server is refusing to respond to it. Unlike a 401 Unauthorized response, authenticating will make no difference."
+				}
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				"13"
+			],
+			"allTests": [
+				{}
+			],
+			"time": "13",
+			"totalRequestTime": "13",
+			"iterationResults": {}
+		},
+		{
+			"name": "http://127.0.0.1:8000/polls/api/choices/34/",
+			"id": "12673436-b3f3-e781-2fce-fc901c64832c",
+			"url": "http://127.0.0.1:8000/polls/api/choices/34/",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				"9"
+			],
+			"allTests": [
+				{}
+			],
+			"time": "9",
+			"totalRequestTime": "9",
+			"iterationResults": {}
+		},
+		{
+			"name": "http://127.0.0.1:8000/polls/api/choices/34/",
+			"id": "354109dc-f32d-082f-f25d-da500058a997",
+			"url": "http://127.0.0.1:8000/polls/api/choices/34/",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden",
+				"detail": {
+					"name": "Forbidden",
+					"detail": "The request was a legal request, but the server is refusing to respond to it. Unlike a 401 Unauthorized response, authenticating will make no difference."
+				}
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				"10"
+			],
+			"allTests": [
+				{}
+			],
+			"time": "10",
+			"totalRequestTime": "10",
+			"iterationResults": {}
+		},
+		{
+			"name": "http://127.0.0.1:8000/polls/api/choices/34/",
+			"id": "de6d6cb6-1ae2-62be-da6f-37aa7295f13f",
+			"url": "http://127.0.0.1:8000/polls/api/choices/34/",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				"245"
+			],
+			"allTests": [
+				{}
+			],
+			"time": "245",
+			"totalRequestTime": "245",
+			"iterationResults": {}
+		},
+		{
+			"name": "http://127.0.0.1:8000/polls/api/choices/34/",
+			"id": "80171c22-4481-17d9-d456-53edacd69cb2",
+			"url": "http://127.0.0.1:8000/polls/api/choices/34/",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden",
+				"detail": {
+					"name": "Forbidden",
+					"detail": "The request was a legal request, but the server is refusing to respond to it. Unlike a 401 Unauthorized response, authenticating will make no difference."
+				}
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				"141"
+			],
+			"allTests": [
+				{}
+			],
+			"time": "141",
+			"totalRequestTime": "141",
+			"iterationResults": {}
+		},
+		{
+			"name": "http://127.0.0.1:8000/polls/api/choices/34/",
+			"id": "d7a3b565-7035-a445-348d-f65e02581111",
+			"url": "http://127.0.0.1:8000/polls/api/questions/16",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				"126"
+			],
+			"allTests": [
+				{}
+			],
+			"time": "126",
+			"totalRequestTime": "126",
+			"iterationResults": {}
+		},
+		{
+			"name": "http://127.0.0.1:8000/polls/api/questions/16",
+			"id": "2f8afe45-cc3e-b5ea-a6eb-c98eb1e18ede",
+			"url": "http://127.0.0.1:8000/polls/api/questions/16",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				"129"
+			],
+			"allTests": [
+				{}
+			],
+			"time": "129",
+			"totalRequestTime": "129",
+			"iterationResults": {}
+		},
+		{
+			"name": "http://127.0.0.1:8000/polls/api/questions/16",
+			"id": "51aafa03-fe9a-a48b-0ad0-f9d9694c39ec",
+			"url": "http://127.0.0.1:8000/polls/api/questions/16",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				"130"
+			],
+			"allTests": [
+				{}
+			],
+			"time": "130",
+			"totalRequestTime": "130",
+			"iterationResults": {}
+		},
+		{
+			"name": "http://127.0.0.1:8000/polls/api/questions/16/",
+			"id": "b5332879-b313-e62e-9b16-b73e85616c39",
+			"url": "http://127.0.0.1:8000/polls/api/questions/16/",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				"205"
+			],
+			"allTests": [
+				{}
+			],
+			"time": "205",
+			"totalRequestTime": "205",
+			"iterationResults": {}
+		}
+	],
+	"totalPass": 0,
+	"totalFail": 0,
+	"totalTime": 1021,
+	"lifecycle": "done",
+	"requests": [
+		{
+			"name": "http://127.0.0.1:8000/polls/api/choices/",
+			"id": "2172c7ed-1373-2618-ffb0-e716371efc8d",
+			"url": "http://127.0.0.1:8000/polls/api/choices/",
+			"time": "2017-05-19T07:44:46.216Z",
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {}
+		},
+		{
+			"name": "http://127.0.0.1:8000/polls/api/choices/34/",
+			"id": "46c1e063-166e-965d-5bd4-ecc950dbcaf2",
+			"url": "http://127.0.0.1:8000/polls/api/choices/34/",
+			"time": "2017-05-19T07:44:46.216Z",
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden",
+				"detail": {
+					"name": "Forbidden",
+					"detail": "The request was a legal request, but the server is refusing to respond to it. Unlike a 401 Unauthorized response, authenticating will make no difference."
+				}
+			},
+			"testPassFailCounts": {}
+		},
+		{
+			"name": "http://127.0.0.1:8000/polls/api/choices/34/",
+			"id": "12673436-b3f3-e781-2fce-fc901c64832c",
+			"url": "http://127.0.0.1:8000/polls/api/choices/34/",
+			"time": "2017-05-19T07:44:46.216Z",
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {}
+		},
+		{
+			"name": "http://127.0.0.1:8000/polls/api/choices/34/",
+			"id": "354109dc-f32d-082f-f25d-da500058a997",
+			"url": "http://127.0.0.1:8000/polls/api/choices/34/",
+			"time": "2017-05-19T07:44:46.216Z",
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden",
+				"detail": {
+					"name": "Forbidden",
+					"detail": "The request was a legal request, but the server is refusing to respond to it. Unlike a 401 Unauthorized response, authenticating will make no difference."
+				}
+			},
+			"testPassFailCounts": {}
+		},
+		{
+			"name": "http://127.0.0.1:8000/polls/api/choices/34/",
+			"id": "de6d6cb6-1ae2-62be-da6f-37aa7295f13f",
+			"url": "http://127.0.0.1:8000/polls/api/choices/34/",
+			"time": "2017-05-19T07:44:46.216Z",
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {}
+		},
+		{
+			"name": "http://127.0.0.1:8000/polls/api/choices/34/",
+			"id": "80171c22-4481-17d9-d456-53edacd69cb2",
+			"url": "http://127.0.0.1:8000/polls/api/choices/34/",
+			"time": "2017-05-19T07:44:46.216Z",
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden",
+				"detail": {
+					"name": "Forbidden",
+					"detail": "The request was a legal request, but the server is refusing to respond to it. Unlike a 401 Unauthorized response, authenticating will make no difference."
+				}
+			},
+			"testPassFailCounts": {}
+		},
+		{
+			"name": "http://127.0.0.1:8000/polls/api/choices/34/",
+			"id": "d7a3b565-7035-a445-348d-f65e02581111",
+			"url": "http://127.0.0.1:8000/polls/api/questions/16",
+			"time": "2017-05-19T07:44:46.216Z",
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {}
+		},
+		{
+			"name": "http://127.0.0.1:8000/polls/api/questions/16",
+			"id": "2f8afe45-cc3e-b5ea-a6eb-c98eb1e18ede",
+			"url": "http://127.0.0.1:8000/polls/api/questions/16",
+			"time": "2017-05-19T07:44:46.216Z",
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {}
+		},
+		{
+			"name": "http://127.0.0.1:8000/polls/api/questions/16",
+			"id": "51aafa03-fe9a-a48b-0ad0-f9d9694c39ec",
+			"url": "http://127.0.0.1:8000/polls/api/questions/16",
+			"time": "2017-05-19T07:44:46.216Z",
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {}
+		},
+		{
+			"name": "http://127.0.0.1:8000/polls/api/questions/16/",
+			"id": "b5332879-b313-e62e-9b16-b73e85616c39",
+			"url": "http://127.0.0.1:8000/polls/api/questions/16/",
+			"time": "2017-05-19T07:44:46.216Z",
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {}
+		}
+	],
+	"synced": false
+}

@@ -1,0 +1,265 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Polls REST API",
+		"_postman_id": "66869e39-e2a8-c982-0fc7-ac4fa0e2e064",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://127.0.0.1:8000/polls/api/choices/",
+			"request": {
+				"url": "http://127.0.0.1:8000/polls/api/choices/",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "Listing all choices for (no authorization)"
+			},
+			"response": [
+				{
+					"id": "5b3ab5e8-3854-48a8-aa45-02b5eae42635",
+					"name": "list of all choices",
+					"originalRequest": {
+						"url": "http://127.0.0.1:8000/polls/api/choices/",
+						"method": "GET",
+						"header": [],
+						"body": {}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "text",
+					"header": [
+						{
+							"key": "Allow",
+							"value": "GET, POST, HEAD, OPTIONS",
+							"name": "Allow",
+							"description": "Valid actions for a specified resource. To be used for a 405 Method not allowed"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "The mime type of this content"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 19 May 2017 07:34:13 GMT",
+							"name": "Date",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.1 Python/2.7.6",
+							"name": "Server",
+							"description": "A name for the server"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Cookie",
+							"name": "Vary",
+							"description": "Tells downstream proxies how to match future request headers to decide whether the cached response can be used rather than requesting a fresh one from the origin server."
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN",
+							"name": "X-Frame-Options",
+							"description": "Clickjacking protection: \"deny\" - no rendering within a frame, \"sameorigin\" - no rendering if origin mismatch"
+						}
+					],
+					"cookie": [
+						{
+							"expires": "Fri May 18 2018 07:02:12 GMT+0530 (IST)",
+							"httpOnly": false,
+							"domain": "127.0.0.1",
+							"path": "/",
+							"secure": false,
+							"value": "n960rEeMDcZAI2IsDxDtvoK4CljeeduS",
+							"key": "csrftoken"
+						}
+					],
+					"responseTime": 39,
+					"body": "[{\"id\":1,\"choice_text\":\"12-18\",\"votes\":5},{\"id\":2,\"choice_text\":\"19-30\",\"votes\":2},{\"id\":3,\"choice_text\":\"31-50\",\"votes\":1},{\"id\":4,\"choice_text\":\"50+\",\"votes\":3},{\"id\":5,\"choice_text\":\"Male\",\"votes\":16},{\"id\":6,\"choice_text\":\"Female\",\"votes\":6},{\"id\":7,\"choice_text\":\"Others\",\"votes\":2},{\"id\":12,\"choice_text\":\"SSC\",\"votes\":8},{\"id\":13,\"choice_text\":\"HSC\",\"votes\":1},{\"id\":14,\"choice_text\":\"BSC\",\"votes\":2},{\"id\":15,\"choice_text\":\"BT\",\"votes\":1},{\"id\":18,\"choice_text\":\"Yes\",\"votes\":0},{\"id\":19,\"choice_text\":\"No\",\"votes\":0},{\"id\":20,\"choice_text\":\"Doesn't matter\",\"votes\":0},{\"id\":21,\"choice_text\":\"Yes\",\"votes\":0},{\"id\":22,\"choice_text\":\"No\",\"votes\":0},{\"id\":23,\"choice_text\":\"Yes\",\"votes\":0},{\"id\":24,\"choice_text\":\"No\",\"votes\":0},{\"id\":25,\"choice_text\":\"Maybe\",\"votes\":0},{\"id\":26,\"choice_text\":\"PC/Laptops\",\"votes\":1},{\"id\":27,\"choice_text\":\"Smartphones/Tablets\",\"votes\":1},{\"id\":28,\"choice_text\":\"Mp3 players/iPod\",\"votes\":0},{\"id\":29,\"choice_text\":\"TV\",\"votes\":0},{\"id\":30,\"choice_text\":\"0-2\",\"votes\":6},{\"id\":31,\"choice_text\":\"3-5\",\"votes\":0},{\"id\":32,\"choice_text\":\"6-9\",\"votes\":1},{\"id\":33,\"choice_text\":\"10+\",\"votes\":1},{\"id\":34,\"choice_text\":\"choice 11\",\"votes\":0}]"
+				}
+			]
+		},
+		{
+			"name": "http://127.0.0.1:8000/polls/api/choices/34/",
+			"request": {
+				"url": "http://127.0.0.1:8000/polls/api/choices/34/",
+				"method": "POST",
+				"header": [],
+				"body": {},
+				"description": "POst request without authentication"
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:8000/polls/api/choices/34/",
+			"request": {
+				"url": "http://127.0.0.1:8000/polls/api/choices/34/",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "GEt request for choice id 34 without authetication"
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:8000/polls/api/choices/34/",
+			"request": {
+				"url": "http://127.0.0.1:8000/polls/api/choices/34/",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 34,\n    \"choice_text\": \"choice 11\",\n    \"votes\": 0\n}"
+				},
+				"description": "PUT request for choice id 34 without authetication"
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:8000/polls/api/choices/34/",
+			"request": {
+				"url": "http://127.0.0.1:8000/polls/api/choices/34/",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic dmFpYmhhdjp2YWliaGF2MTIz",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 34,\n    \"choice_text\": \"choice 11\",\n    \"votes\": 0\n}"
+				},
+				"description": "PUT request for choice id 34 with (admin) authetication"
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:8000/polls/api/choices/34/",
+			"request": {
+				"url": "http://127.0.0.1:8000/polls/api/choices/34/",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic c2l0ZXVzZXIxOnZhaWJoYXYxMjM=",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 34,\n    \"choice_text\": \"choice 12\",\n    \"votes\": 0\n}"
+				},
+				"description": "PUT request for choice id 34 with (site-user) authetication\nSite user dont have permissions to edit this model"
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:8000/polls/api/choices/34/",
+			"request": {
+				"url": "http://127.0.0.1:8000/polls/api/questions/16",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic c3RhZmYxOnZhaWJoYXYxMjM=",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 34,\n    \"choice_text\": \"choice 13\",\n    \"votes\": 0\n}"
+				},
+				"description": "PUT request for choice id 34 with (site-user) authetication\nStaff user dont have permissions to edit choice model"
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:8000/polls/api/questions/16",
+			"request": {
+				"url": "http://127.0.0.1:8000/polls/api/questions/16",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic c3RhZmYxOnZhaWJoYXYxMjM=",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 34,\n    \"choice_text\": \"choice 13\",\n    \"votes\": 0\n}"
+				},
+				"description": "PUT request for question id 16 with (staff-user) authetication\nStaff user does have permissions to edit question model"
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:8000/polls/api/questions/16",
+			"request": {
+				"url": "http://127.0.0.1:8000/polls/api/questions/16",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic c3RhZmYxOnZhaWJoYXYxMjM=",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 34,\n    \"choice_text\": \"choice 13\",\n    \"votes\": 0\n}"
+				},
+				"description": "PUT request for question id 16 with (staff-user) authetication\nStaff user does have permissions to edit question model"
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:8000/polls/api/questions/16/",
+			"request": {
+				"url": "http://127.0.0.1:8000/polls/api/questions/16/",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic c3RhZmYxOnZhaWJoYXYxMjM=",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"id\": 16,\n  \"question_text\": \"temp question for api testing 44\",\n  \"pub_date\": \"2017-06-03T06:05:01Z\",\n  \"category\": \"Temporory Category for api testing 3\"\n}"
+				},
+				"description": "PUT request for question id 16 with (staff-user) authetication\nStaff user does have permissions to edit question model"
+			},
+			"response": []
+		}
+	]
+}
