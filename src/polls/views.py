@@ -106,13 +106,12 @@ class QuestionViewSet(viewsets.ModelViewSet):
 	permission_classes = (permissions.DjangoModelPermissionsOrAnonReadOnly,)
 
 
-
 class ChoiceViewSet(viewsets.ModelViewSet):
 	"""
 	A Model ViewSet for choices.
 	"""
-	queryset = Question.objects.all()
-	serializer_class = QuestionSerializer
+	queryset = Choice.objects.all()
+	serializer_class = ChoiceSerializer
 	permission_classes = (permissions.DjangoModelPermissionsOrAnonReadOnly,)
 
 
