@@ -12,7 +12,7 @@ import csv
 
 # import for custom authetication for api
 from rest_framework import permissions
-from .permissions import ObjectPermissionCHeck
+
 
 
 
