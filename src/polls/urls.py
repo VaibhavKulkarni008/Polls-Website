@@ -16,7 +16,7 @@ urlpatterns = [
 
 	url(r'^(?P<question_id>[0-9]+)/vote/$', views.vote, name = 'vote'),
 
-	url(r'^(?P<question_id>[0-9]+)/export/$', views.export_excel, name= 'export_excel'),
+	url(r'^(?P<question_id>[0-9]+)/export/$', views.export_csv, name= 'export_csv'),
 ]
 
 

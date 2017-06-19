@@ -15,7 +15,6 @@ from rest_framework import permissions
 
 
 
-
 #Model imports
 from .models import Question, Choice
 
@@ -37,9 +36,6 @@ class IndexView(generic.ListView):
 		"""Pass the modelset to the template"""
 
 		return Question.objects.filter(pub_date__lte=timezone.now()).order_by('-pub_date')
-
-
-		
 
 
 class DetailView(generic.DetailView):
@@ -74,8 +70,8 @@ def vote(request, question_id):
 
 
 
-def export_excel(request,question_id):
-	""" Export the data form given question id into excel file """
+def export_csv(request,question_id):
+	""" Export the data form given question id into csv file """
 	question_provided_in_url = get_object_or_404(Question, pk=question_id)
 	response = HttpResponse(content_type='text/csv')
 	response['Content-Disposition'] = 'attachment; filename="question.csv"'

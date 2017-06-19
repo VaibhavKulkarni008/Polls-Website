@@ -17,7 +17,7 @@ def export_question_set_as_csv(modeladmin, request, queryset):
 
 		response = HttpResponse(content_type='text/csv')
 
-		response['Content-Disposition'] = 'attachment; filename=%s.csv' % unicode(opts).replace('.', '_')
+		response['Content-Disposition'] = 'attachment; filename=%s.csv' % str(opts).replace('.', '_')
 
 		writer = csv.writer(response)
 
@@ -33,13 +33,6 @@ def export_question_set_as_csv(modeladmin, request, queryset):
 			writer.writerow(row)
 
 		return response
-
-		export_as_csv.short_description = description
-
-		return export_as_csv
-
-
-
 
 
 class ChoiceInline(admin.TabularInline):
